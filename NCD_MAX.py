@@ -72,6 +72,8 @@ class MenuItem(db.Model):
     name = db.Column(db.String(100), nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey('menu_category.id'), nullable=False)
 
+
+
 # ==============================================================================
 # 3. ส่วนค่าคงที่และฟังก์ชันผู้ช่วย
 # ==============================================================================
@@ -163,6 +165,7 @@ def logout():
     return redirect(url_for('login'))
         
 @app.route("/register", methods=['GET', 'POST'])
+@login_required
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('home'))

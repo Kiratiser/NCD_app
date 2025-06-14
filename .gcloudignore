@@ -1,0 +1,14 @@
+# ไฟล์ที่ถูกสร้างขึ้นโดย Python
+__pycache__/
+*.pyc
+
+# ไฟล์ของ Git
+.git
+.gitignore
+
+# โฟลเดอร์ virtual environment (ถ้ามี)
+venv/
+env/
+
+# ไฟล์ฐานข้อมูล SQLite (เราไม่ได้ใช้บนเซิร์ฟเวอร์)
+*.db

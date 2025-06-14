@@ -1,0 +1,17 @@
+# กำหนดเวอร์ชั่นของ Python ที่จะใช้
+runtime: python39
+
+# กำหนดคำสั่งที่จะใช้รันแอปพลิเคชันของคุณ
+# Gunicorn คือเซิร์ฟเวอร์สำหรับใช้งานจริง (Production) ซึ่งมีอยู่ใน requirements.txt ของคุณแล้ว
+# app:app หมายถึง: ในไฟล์ app.py ให้มองหาตัวแปรชื่อ app
+entrypoint: gunicorn -b :$PORT app:app
+
+# กำหนดประเภทของเครื่องเซิร์ฟเวอร์ (F1 คือระดับฟรี)
+instance_class: F1
+
+# การตั้งค่าสำหรับ handler เพื่อให้แน่ใจว่าไฟล์ static (เช่น CSS, JS) ถูกเรียกใช้งานอย่างถูกต้อง
+handlers:
+- url: /static
+  static_dir: static
+- url: /.*
+  script: auto
