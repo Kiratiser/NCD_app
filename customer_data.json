@@ -1,0 +1,1120 @@
+[
+    {
+        "date": "2025-06-02",
+        "name": "Little",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Latte (Iced, 25%)",
+            "Latte (Iced, 25%)",
+            "Thai Tea (Iced, 25%)",
+            "Lemon Tea (Iced, 0% (No Sugar))",
+            "Matcha (Iced, 0% (No Sugar))",
+            "Latte (Frappe, 50% (Normal))",
+            "lemon Juice (Iced, 50% (Normal))"
+        ],
+        "order_total": 372.0
+    },
+    {
+        "date": "2025-06-02",
+        "name": "Yayee",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Espresso (Iced, 25%)",
+            "Espresso (Iced, 25%)",
+            "Caramel Macchiato (Iced, 50% (Normal))"
+        ],
+        "order_total": 158.0
+    },
+    {
+        "date": "2025-06-02",
+        "name": "กันยา",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Pure Matcha (Iced, 25%)",
+            "กะเพรา (กุ้ง)"
+        ],
+        "order_total": 118.0
+    },
+    {
+        "date": "2025-06-02",
+        "name": "FSC",
+        "phone": "",
+        "order_method": "Dine-in",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar), Ethiopia)"
+        ],
+        "order_total": 80.0
+    },
+    {
+        "date": "2025-06-02",
+        "name": "พลอย",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Green Tea (Iced, 25%)"
+        ],
+        "order_total": 56.0
+    },
+    {
+        "date": "2025-06-02",
+        "name": "Wipu",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-02",
+        "name": "พรกนก",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar))",
+            "Thai Tea (Iced, 50% (Normal))"
+        ],
+        "order_total": 102.0
+    },
+    {
+        "date": "2025-06-02",
+        "name": "กมล",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Strawberry Frappe (Iced, 50% (Normal), Add Yogurt)"
+        ],
+        "order_total": 70.0
+    },
+    {
+        "date": "2025-06-02",
+        "name": "นพวรรณ",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Coke (Frappe, 50% (Normal))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-03",
+        "name": "ทศพล",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-03",
+        "name": "พิม",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-03",
+        "name": "Yayee",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Cappuccino (Iced, 25%)"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-03",
+        "name": "Atitaya",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Cappuccino (Iced, 50% (Normal))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-03",
+        "name": "Wipu",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-03",
+        "name": "ณัฐพร ทัศเจริญ",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Espresso (Iced, 75%)"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-03",
+        "name": "กำไร",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Latte (Iced, 25%)"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-03",
+        "name": "Pxtt",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Espresso (Iced, 50% (Normal))",
+            "Latte (Iced, 50% (Normal), Add milk)"
+        ],
+        "order_total": 120.0
+    },
+    {
+        "date": "2025-06-03",
+        "name": "FSC",
+        "phone": "",
+        "order_method": "Dine-in",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 60.0
+    },
+    {
+        "date": "2025-06-03",
+        "name": "Plernly",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Orange Frappe (Frappe, 50% (Normal))",
+            "Oreo Frappe (Frappe, 50% (Normal))",
+            "Yakult Pepo (Frappe, 50% (Normal))"
+        ],
+        "order_total": 179.0
+    },
+    {
+        "date": "2025-06-03",
+        "name": "ชนาพร",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Thai Tea (Hot, 50% (Normal))"
+        ],
+        "order_total": 60.0
+    },
+    {
+        "date": "2025-06-04",
+        "name": "Narapat",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Latte (Iced, 25%)"
+        ],
+        "order_total": 60.0
+    },
+    {
+        "date": "2025-06-04",
+        "name": "ทศพล",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-04",
+        "name": "Yayee",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Espresso (Iced, 25%)",
+            "Latte (Iced, 100%)"
+        ],
+        "order_total": 102.0
+    },
+    {
+        "date": "2025-06-04",
+        "name": "ธนัชพร",
+        "phone": "",
+        "order_method": "Line Man",
+        "ordered_items": [
+            "Latte (Iced, 25%, Brazil)",
+            "Strawberry Tea (Iced, 50% (Normal))"
+        ],
+        "order_total": 130.0
+    },
+    {
+        "date": "2025-06-04",
+        "name": "พลอย",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Thai Tea (Iced, 25%)",
+            "ข้าวผัดพริกอ่อน (หมู ไข่ดาวไม่สุก)"
+        ],
+        "order_total": 108.0
+    },
+    {
+        "date": "2025-06-04",
+        "name": "Puthiaero",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 25%, แม่จันใต้)",
+            "Pure Matcha (Iced, 25%)"
+        ],
+        "order_total": 123.0
+    },
+    {
+        "date": "2025-06-04",
+        "name": "FSC",
+        "phone": "",
+        "order_method": "Dine-in",
+        "ordered_items": [
+            "Thai Tea (Iced, 50% (Normal))"
+        ],
+        "order_total": 65.0
+    },
+    {
+        "date": "2025-06-04",
+        "name": "ภณิดา",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Pure Matcha (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 61.0
+    },
+    {
+        "date": "2025-06-04",
+        "name": "Thidarat",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Thai Tea (Iced, 25%)"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-04",
+        "name": "พี่เป๊ก",
+        "phone": "",
+        "order_method": "Dine-in",
+        "ordered_items": [
+            "Coco  (Frappe, 50% (Normal))",
+            "Mango Frappe (Frappe, 75%)",
+            "Thai Tea (Iced, 50% (Normal))",
+            "Green Tea (Iced, 50% (Normal), Honey)"
+        ],
+        "order_total": 250.0
+    },
+    {
+        "date": "2025-06-05",
+        "name": "Mymagic",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Latte (Iced, 50% (Normal))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-05",
+        "name": "Atitaya",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Cappuccino (Iced, 50% (Normal))",
+            "Americano (Iced, 50% (Normal))"
+        ],
+        "order_total": 102.0
+    },
+    {
+        "date": "2025-06-05",
+        "name": "ทศพล",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-05",
+        "name": "ศิ",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "ข้าวไข่ขยี้กุ้ง",
+            "ข้าวผัดพริกอ่อน (หมู)"
+        ],
+        "order_total": 117.0
+    },
+    {
+        "date": "2025-06-05",
+        "name": "จุ๋ม",
+        "phone": "",
+        "order_method": "Line Man",
+        "ordered_items": [
+            "Espresso (Iced, 25%)"
+        ],
+        "order_total": 60.0
+    },
+    {
+        "date": "2025-06-05",
+        "name": "กิตติกร",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Cappuccino (Iced, 25%)"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-05",
+        "name": "Pxtt",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Espresso (Iced, 50% (Normal))",
+            "Latte (Iced, 50% (Normal), Add milk)"
+        ],
+        "order_total": 120.0
+    },
+    {
+        "date": "2025-06-05",
+        "name": "Wipu",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Green Tea (Iced, 25%)"
+        ],
+        "order_total": 56.0
+    },
+    {
+        "date": "2025-06-05",
+        "name": "บสก.",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Cappuccino (Iced, 25%, => 10%)"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-05",
+        "name": "Nc",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Strawberry Tea (Iced, 50% (Normal), Add bubble)",
+            "Ovaltin  (Frappe, 50% (Normal))"
+        ],
+        "order_total": 130.0
+    },
+    {
+        "date": "2025-06-05",
+        "name": "Iphone",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Pure Matcha (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 70.0
+    },
+    {
+        "date": "2025-06-02",
+        "name": "พิม",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Espresso (Iced, 50% (Normal))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-06",
+        "name": "ทศพล",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-06",
+        "name": "Atitaya",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Cappuccino (Iced, 50% (Normal))",
+            "Americano (Iced, 50% (Normal))",
+            "Caramel Macchiato (Iced, 25%)"
+        ],
+        "order_total": 158.0
+    },
+    {
+        "date": "2025-06-06",
+        "name": "Chayan",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Cappuccino (Iced, 50% (Normal))",
+            "Cappuccino (Iced, 50% (Normal))",
+            "Latte (Iced, 50% (Normal))",
+            "Latte (Iced, 50% (Normal))"
+        ],
+        "order_total": 206.0
+    },
+    {
+        "date": "2025-06-06",
+        "name": "วนัชพร",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Thai Tea (Iced, 25%)"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-06",
+        "name": "Yayee",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Espresso (Iced, 25%)",
+            "Latte (Iced, 100%)"
+        ],
+        "order_total": 102.0
+    },
+    {
+        "date": "2025-06-06",
+        "name": "นัท",
+        "phone": "",
+        "order_method": "Line Man",
+        "ordered_items": [
+            "Americano (Iced, 25%, Brazil)",
+            "Thai Tea (Iced, 25%)"
+        ],
+        "order_total": 140.0
+    },
+    {
+        "date": "2025-06-06",
+        "name": "Bee",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar), ดอยช้าง)",
+            "Thai Tea (Iced, 25%)",
+            "กะเพรา (ไก่ ไข่ดาวแบบสุก)"
+        ],
+        "order_total": 170.0
+    },
+    {
+        "date": "2025-06-06",
+        "name": "Wipu",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar))",
+            "Americano (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 102.0
+    },
+    {
+        "date": "2025-06-07",
+        "name": "พิม",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar), ดอยช้าง)"
+        ],
+        "order_total": 61.0
+    },
+    {
+        "date": "2025-06-07",
+        "name": "ทศพล",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-07",
+        "name": "วนัชพร",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Green Tea (Iced, 25%)"
+        ],
+        "order_total": 56.0
+    },
+    {
+        "date": "2025-06-07",
+        "name": "นรา",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Espresso (Iced, 25%, Add shots)",
+            "Espresso (Iced, 25%)",
+            "Coco  (Iced, 25%)"
+        ],
+        "order_total": 174.0
+    },
+    {
+        "date": "2025-06-07",
+        "name": "คุณแหม่ม",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Cappuccino (Iced, 25%)"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-07",
+        "name": "ชลธิชา",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-07",
+        "name": "Yayee",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Espresso (Iced, 25%)",
+            "Latte (Iced, 100%)"
+        ],
+        "order_total": 102.0
+    },
+    {
+        "date": "2025-06-07",
+        "name": "Pxtt",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Americano (Iced, 25%, Honey)",
+            "Latte (Iced, 50% (Normal), Add milk)"
+        ],
+        "order_total": 120.0
+    },
+    {
+        "date": "2025-06-07",
+        "name": "Mymagic",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Thai Tea (Iced, 50% (Normal))",
+            "Latte (Iced, 50% (Normal), ดอยช้าง)"
+        ],
+        "order_total": 103.0
+    },
+    {
+        "date": "2025-06-07",
+        "name": "FSC",
+        "phone": "",
+        "order_method": "Dine-in",
+        "ordered_items": [
+            "Dalgona latte (Iced, 25%)"
+        ],
+        "order_total": 75.0
+    },
+    {
+        "date": "2025-06-07",
+        "name": "อรทัย",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Cappuccino (Iced, 50% (Normal))",
+            "Cappuccino (Iced, 50% (Normal))"
+        ],
+        "order_total": 120.0
+    },
+    {
+        "date": "2025-06-08",
+        "name": "Yayee",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Latte (Iced, 100%)",
+            "Espresso (Iced, 25%)"
+        ],
+        "order_total": 102.0
+    },
+    {
+        "date": "2025-06-08",
+        "name": "ปิยฉัตร",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Cappuccino (Iced, 100%)",
+            "Caramel Macchiato (Iced, 25%)"
+        ],
+        "order_total": 98.0
+    },
+    {
+        "date": "2025-06-08",
+        "name": "ศิ",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "ข้าวผัดพริกอ่อน (หมู ไข่ดาวแบบพอดี)",
+            "ข้าวไข่ขยี้กุ้ง"
+        ],
+        "order_total": 127.0
+    },
+    {
+        "date": "2025-06-08",
+        "name": "เบียร์",
+        "phone": "",
+        "order_method": "Line Man",
+        "ordered_items": [
+            "Cappuccino (Iced, 50% (Normal))"
+        ],
+        "order_total": 60.0
+    },
+    {
+        "date": "2025-06-08",
+        "name": "Patcharida",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Matcha (Iced, 75%)"
+        ],
+        "order_total": 70.0
+    },
+    {
+        "date": "2025-06-08",
+        "name": "Nc",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Lemon Tea (Iced, 50% (Normal))"
+        ],
+        "order_total": 54.0
+    },
+    {
+        "date": "2025-06-08",
+        "name": "Yanawut",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Green Tea (Iced, 25%)"
+        ],
+        "order_total": 56.0
+    },
+    {
+        "date": "2025-06-08",
+        "name": "ชนาพร",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Thai Tea (Iced, 50% (Normal))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-09",
+        "name": "ทศพล",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-09",
+        "name": "Wipawee",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Cappuccino (Iced, 25%)"
+        ],
+        "order_total": 60.0
+    },
+    {
+        "date": "2025-06-09",
+        "name": "วิลัยพร",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "หมี่คลุก",
+            "Peach Tea (Iced, 50% (Normal), Add pop)",
+            "Peach Tea (Iced, 50% (Normal))",
+            "Caramel Macchiato (Frappe, 50% (Normal))",
+            "Cappuccino (Iced, 25%, Add oatmilk)"
+        ],
+        "order_total": 339.0
+    },
+    {
+        "date": "2025-06-09",
+        "name": "Yayee",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Espresso (Iced, 25%)"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-09",
+        "name": "วีระพันธ์",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "ข้าวผัด (กุ้ง พิเศษ)",
+            "Americano (Iced, 25%)"
+        ],
+        "order_total": 150.0
+    },
+    {
+        "date": "2025-06-09",
+        "name": "บสก.",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-09",
+        "name": "Pxtt",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Americano (Iced, 25%, Honey)",
+            "Latte (Iced, 50% (Normal), Add milk)"
+        ],
+        "order_total": 120.0
+    },
+    {
+        "date": "2025-06-09",
+        "name": "Nc",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Lemon Tea (Iced, 50% (Normal))"
+        ],
+        "order_total": 54.0
+    },
+    {
+        "date": "2025-06-09",
+        "name": "Wipu",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-09",
+        "name": "FSC",
+        "phone": "",
+        "order_method": "Dine-in",
+        "ordered_items": [
+            "กะเพรา (หมู ไข่ดาวไม่สุก)",
+            "ข้าวกระเทียม (หมู)",
+            "Latte (Iced, 25%)",
+            "Green Tea (Iced, 25%)"
+        ],
+        "order_total": 235.0
+    },
+    {
+        "date": "2025-06-09",
+        "name": "Yanawut",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Green Tea (Iced, 25%)",
+            "Green Tea (Iced, 25%)"
+        ],
+        "order_total": 103.0
+    },
+    {
+        "date": "2025-06-09",
+        "name": "Ratthawich",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Caramel Macchiato (Iced, 75%)"
+        ],
+        "order_total": 65.0
+    },
+    {
+        "date": "2025-06-10",
+        "name": "ทศพล",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-10",
+        "name": "กนกพร",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Latte (Iced, 50% (Normal))",
+            "กะเพรา (หมู ไข่ดาวไม่สุก)"
+        ],
+        "order_total": 128.0
+    },
+    {
+        "date": "2025-06-10",
+        "name": "วนัชพร",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Latte (Iced, 25%, => 20% แม่จันใต้)",
+            "Green Tea (Iced, 25%, => 20%)"
+        ],
+        "order_total": 118.0
+    },
+    {
+        "date": "2025-06-10",
+        "name": "Yayee",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Latte (Iced, 100%)",
+            "Espresso (Iced, 25%)",
+            "Espresso (Iced, 50% (Normal))"
+        ],
+        "order_total": 153.0
+    },
+    {
+        "date": "2025-06-10",
+        "name": "Nc",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Lemon Tea (Iced, 50% (Normal))"
+        ],
+        "order_total": 54.0
+    },
+    {
+        "date": "2025-06-10",
+        "name": "ปลา",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Green Tea (Iced, 25%)",
+            "Green Tea (Iced, 25%)"
+        ],
+        "order_total": 103.0
+    },
+    {
+        "date": "2025-06-10",
+        "name": "Wipu",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Latte (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-11",
+        "name": "ญาณิศา",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Latte (Iced, 50% (Normal))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-11",
+        "name": "ทศพล",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-11",
+        "name": "Atitaya",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Cappuccino (Iced, 50% (Normal))",
+            "Americano (Iced, 50% (Normal))",
+            "Americano (Iced, 50% (Normal))",
+            "Caramel Macchiato (Iced, 25%)"
+        ],
+        "order_total": 210.0
+    },
+    {
+        "date": "2025-06-11",
+        "name": "วิลัยพร",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Peach Tea (Iced, 50% (Normal), Add pop)",
+            "Latte (Iced, 25%)"
+        ],
+        "order_total": 108.0
+    },
+    {
+        "date": "2025-06-11",
+        "name": "Yanawut",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Green Tea (Iced, 25%)"
+        ],
+        "order_total": 56.0
+    },
+    {
+        "date": "2025-06-11",
+        "name": "Wipu",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-12",
+        "name": "ทศพล",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 51.0
+    },
+    {
+        "date": "2025-06-12",
+        "name": "aatchariyasanwa",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Cappuccino (Iced, 25%)",
+            "Cappuccino (Iced, 25%)"
+        ],
+        "order_total": 102.0
+    },
+    {
+        "date": "2025-06-12",
+        "name": "กุลจิรา",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Coco  (Iced, 50% (Normal))"
+        ],
+        "order_total": 56.0
+    },
+    {
+        "date": "2025-06-12",
+        "name": "เนม",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar))",
+            "Americano (Iced, 0% (No Sugar))",
+            "Americano (Iced, 0% (No Sugar))",
+            "Americano (Iced, 0% (No Sugar))"
+        ],
+        "order_total": 205.0
+    },
+    {
+        "date": "2025-06-12",
+        "name": "กันยา",
+        "phone": "",
+        "order_method": "Shopee Food",
+        "ordered_items": [
+            "Pure Matcha (Iced, 25%)"
+        ],
+        "order_total": 61.0
+    },
+    {
+        "date": "2025-06-12",
+        "name": "Nc",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Lemon Tea (Iced, 50% (Normal))"
+        ],
+        "order_total": 54.0
+    },
+    {
+        "date": "2025-06-12",
+        "name": "Pxtt",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Latte (Iced, 50% (Normal), Add milk)"
+        ],
+        "order_total": 60.0
+    },
+    {
+        "date": "2025-06-12",
+        "name": "Ratthawich",
+        "phone": "",
+        "order_method": "Grab",
+        "ordered_items": [
+            "Espresso (Iced, 75%)"
+        ],
+        "order_total": 60.0
+    },
+    {
+        "date": "2025-06-12",
+        "name": "Puwanna",
+        "phone": "",
+        "order_method": "Line Man",
+        "ordered_items": [
+            "Latte (Iced, 25%)",
+            "Latte (Iced, 75%, Add bubble)"
+        ],
+        "order_total": 130.0
+    },
+    {
+        "date": "2025-06-12",
+        "name": "ปุ๊ป",
+        "phone": "",
+        "order_method": "Dine-in",
+        "ordered_items": [
+            "Coco  (Frappe, 25%)"
+        ],
+        "order_total": 75.0
+    },
+    {
+        "date": "2025-06-12",
+        "name": "FSC",
+        "phone": "",
+        "order_method": "Dine-in",
+        "ordered_items": [
+            "Americano (Iced, 0% (No Sugar), Brazil)",
+            "Green Tea (Iced, 50% (Normal))"
+        ],
+        "order_total": 145.0
+    }
+]

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block styles %}
+    <style>
+        /* ทำให้ body และ html สูงเต็มหน้าจอ */
+        html, body {
+            height: 100%;
+        }
+        /* จัดเนื้อหาใน block content ให้อยู่กึ่งกลาง */
+        .full-height-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        .gradient-border-wrapper { padding: 3px; border-radius: .5rem; background: linear-gradient(45deg, #ffc107, #FFD54F); }
+        .card-translucent { background-color: rgba(52, 58, 64, 0.8) !important; border: none; }
+        .card-translucent .card-header { background-color: transparent; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .gradient-text { -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
+        .gradient-text-yellow { background-image: linear-gradient(45deg, #ffc107, #FFD54F); }
+        .form-control-yellow { border-color: #ffc107; }
+        .form-control-yellow:focus { border-color: #FFD54F; box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25); }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="full-height-center">
+    <div class="col-md-6 col-lg-4">
+        <div class="gradient-border-wrapper">
+            <div class="card card-translucent">
+                <div class="card-header h4 text-center">
+                    <span class="gradient-text gradient-text-yellow">Login to NCD</span>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control form-control-yellow" id="username" name="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control form-control-yellow" id="password" name="password" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-warning">Login</button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

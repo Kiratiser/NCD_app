@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}Find Customer{% endblock %}
+
+{% block styles %}
+    <style>
+        .gradient-border-wrapper { padding: 3px; border-radius: .5rem; background: linear-gradient(45deg, #81c784, #198754); }
+        .card-translucent { background-color: rgba(52, 58, 64, 0.75) !important; border: none; }
+        .card-translucent .card-header { background-color: transparent; border-color: rgba(255, 255, 255, 0.1) !important; }
+        .record-inner-bg { background-color: #343a40; border-radius: .3rem; }
+        .gradient-text { -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
+        .gradient-text-green { background-image: linear-gradient(45deg, #81c784, #198754); }
+        .item-tag { padding: .15rem .4rem; border-radius: .25rem; font-size: 0.85em; font-weight: bold; }
+        .tag-hot { background-color: #E57373; color: black; } .tag-iced { background-color: #64B5F6; color: black; } .tag-frappe { background-color: #81C784; color: black; }
+        .tag-s100 { background-color: #FF8A65; color: black; } .tag-s75 { background-color: #FFB74D; color: black; } .tag-s50 { background-color: #FFD54F; color: black; }
+        .tag-s25 { background-color: #90CAF9; color: black; } .tag-s0 { background-color: #424242; color: white; }
+        .tag-dinein { background-color: #29B6F6; color: white; } .tag-grab { background-color: #B2FF59; color: black; }
+        .tag-shopee { background-color: #EE4D2D; color: white; } .tag-lineman { background-color: #2E7D32; color: white; }
+        .pagination .page-item.active .page-link { background-color: #198754; border-color: #198754; }
+        .pagination .page-link { color: #198754; background-color: #343a40; }
+        .pagination .page-link:hover { color: #fff; background-color: #2e7d32; }
+        .pagination .page-item.disabled .page-link { color: #6c757d; background-color: #212529; }
+        .form-control-green { border-color: #198754; }
+        .form-control-green:focus { border-color: #81c784; box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25); }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1><span class="gradient-text gradient-text-green">Find Customer</span></h1>
+        <div>
+            {% if current_user.is_authenticated %}
+                <span class="text-white me-2">Hi, {{ current_user.username }}</span>
+                <a href="{{ url_for('logout') }}" class="btn btn-outline-danger btn-sm">Logout</a>
+            {% endif %}
+            <a href="/" class="btn btn-outline-secondary btn-sm">กลับหน้าหลัก</a>
+        </div>
+    </div>
+    <div class="gradient-border-wrapper mb-4">
+        <div class="card card-translucent">
+            <div class="card-header h5">Search Options</div>
+            <div class="card-body">
+                <form action="{{ url_for('customers_list') }}" method="get">
+                    <p class="text-muted small">กรอกข้อมูลในช่องที่ต้องการค้นหา (สามารถค้นหาแบบผสมผสานได้)</p>
+                    <div class="row g-3">
+                        <div class="col-md-6"><label for="name_query" class="form-label">Search by Name</label><input type="text" id="name_query" name="name_query" class="form-control form-control-green" placeholder="ชื่อลูกค้า..." value="{{ name_query or '' }}"></div>
+                        <div class="col-md-6"><label for="phone_query" class="form-label">Search by Phone</label><input type="tel" id="phone_query" name="phone_query" class="form-control form-control-green" placeholder="เบอร์โทรศัพท์..." value="{{ phone_query or '' }}"></div>
+                        <div class="col-md-4"><label for="start_date_query" class="form-label">From Date</label><input type="date" id="start_date_query" name="start_date_query" class="form-control form-control-green" value="{{ start_date_query or '' }}"></div>
+                        <div class="col-md-4"><label for="end_date_query" class="form-label">To Date</label><input type="date" id="end_date_query" name="end_date_query" class="form-control form-control-green" value="{{ end_date_query or '' }}"></div>
+                        <div class="col-md-4"><label for="method_query" class="form-label">Order Method</label><select id="method_query" name="method_query" class="form-select form-control-green"><option value="">All Methods</option>{% for method in order_methods %}<option value="{{ method }}" {% if method == method_query %}selected{% endif %}>{{ method }}</option>{% endfor %}</select></div>
+                    </div>
+                    <div class="d-grid mt-3"><button class="btn btn-success" type="submit">Search</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    {% if search_active %}
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="alert alert-success p-2 mb-0">พบ <strong>{{ record_count }}</strong> รายการ | ยอดขายรวม: <strong>฿ {{ "%.2f"|format(total_sales) }}</strong></div>
+        </div>
+        {% for customer in customers %}
+            <div class="gradient-border-wrapper mb-3">
+                <div class="record-inner-bg p-3">
+                    <div class="d-flex w-100 justify-content-between align-items-center">
+                        <h5 class="mb-1 text-white">{{ customer.name }}</h5>
+                        <form action="{{ url_for('delete_customer', customer_id=customer.id) }}" method="post" onsubmit="return confirm('คุณต้องการลบข้อมูลลูกค้านี้ทั้งหมดใช่หรือไม่?');">
+                            <input type="hidden" name="name_query" value="{{ name_query or '' }}">
+                            <input type="hidden" name="phone_query" value="{{ phone_query or '' }}">
+                            <input type="hidden" name="start_date_query" value="{{ start_date_query or '' }}">
+                            <input type="hidden" name="end_date_query" value="{{ end_date_query or '' }}">
+                            <input type="hidden" name="method_query" value="{{ method_query or '' }}">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete Record</button>
+                        </form>
+                    </div>
+                    <p class="mb-1">เบอร์โทร: {{ customer.phone or '-' }} | วันที่: {{ customer.date.strftime('%Y-%m-%d') }}</p>
+                    <p class="mb-1">ช่องทาง: {{ customer.processed_method | safe }}</p>
+                    <div class="mt-2"><b class="text-white">Items:</b>
+                        <ul class="list-unstyled ps-3 mb-0">
+                            {% for processed_item in customer.processed_items %}
+                                <li class="text-white">- {{ processed_item | safe }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="text-end mt-2"><span class="fs-5 text-success"><strong>Total: ฿ {{ "%.2f"|format(customer.order_total) }}</strong></span></div>
+                </div>
+            </div>
+        {% else %}
+            {% if record_count == 0 %}
+            <div class="alert alert-warning">ไม่พบข้อมูลลูกค้าที่ตรงกับเงื่อนไขการค้นหา</div>
+            {% endif %}
+        {% endfor %}
+        {% if pagination.pages > 1 %}
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not pagination.has_prev %}disabled{% endif %}"><a class="page-link" href="{{ url_for('customers_list', page=pagination.prev_num, **request.args) }}">Previous</a></li>
+                {% for p in pagination.iter_pages(left_edge=2, right_edge=2, left_current=2, right_current=2) %}
+                    {% if p %}
+                        <li class="page-item {% if p == pagination.page %}active{% endif %}"><a class="page-link" href="{{ url_for('customers_list', page=p, **request.args) }}">{{ p }}</a></li>
+                    {% else %}
+                        <li class="page-item disabled"><span class="page-link">…</span></li>
+                    {% endif %}
+                {% endfor %}
+                <li class="page-item {% if not pagination.has_next %}disabled{% endif %}"><a class="page-link" href="{{ url_for('customers_list', page=pagination.next_num, **request.args) }}">Next</a></li>
+            </ul>
+        </nav>
+        {% endif %}
+    {% else %}
+        <div class="text-center p-5"><p class="lead text-muted">กรุณาใช้ช่องค้นหาด้านบนเพื่อแสดงข้อมูลลูกค้า</p></div>
+    {% endif %}
+{% endblock %}

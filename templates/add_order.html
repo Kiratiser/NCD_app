@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block title %}Add New Order{% endblock %}
+
+{% block styles %}
+    <style>
+        .gradient-border-wrapper { padding: 3px; border-radius: .5rem; background: linear-gradient(45deg, #0dcaf0, #0d6efd); }
+        .gradient-border-wrapper .card { background-color: rgba(33, 37, 41, 0.8) !important; border: none; }
+        .gradient-border-wrapper .card .card-header,
+        .gradient-border-wrapper .card .card-footer { background-color: transparent; border-color: rgba(255, 255, 255, 0.1) !important; }
+        .gradient-text { -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
+        .gradient-text-blue { background-image: linear-gradient(45deg, #0dcaf0, #0d6efd); }
+        .btn-custom { background-color: #343a40; color: white; font-weight: bold; padding: 0.75rem 1.5rem; border: none; width: 100%; border-radius: .3rem; transition: background-color 0.2s ease-in-out; font-size: 1.25rem; }
+        .btn-custom:hover { background-color: #495057; color: white; }
+        .form-control-blue, .form-select-blue { border-color: #0d6efd; }
+        .form-control-blue:focus, .form-select-blue:focus { border-color: #0dcaf0; box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div style="max-width: 700px; margin: auto;">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1><span class="gradient-text gradient-text-blue">Add new order</span></h1>
+            <a href="/" class="btn btn-outline-secondary">กลับหน้าหลัก</a>
+        </div>
+        
+        <form action="{{ url_for('add_order') }}" method="post">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="gradient-border-wrapper mb-4">
+                        <div class="card">
+                            <div class="card-header h5">Customer Information</div>
+                            <div class="card-body">
+                                <div class="mb-3"><label for="name" class="form-label">Name:</label><input type="text" id="name" name="name" class="form-control form-control-blue" required></div>
+                                <div class="mb-3"><label for="phone" class="form-label">Phone: (Optional)</label><input type="tel" id="phone" name="phone" class="form-control form-control-blue"></div>
+                                <div class="mb-3"><label for="order_method" class="form-label">Order Method:</label><select id="order_method" name="order_method" class="form-select form-control-blue">{% for method in order_methods %}<option value="{{ method }}">{{ method }}</option>{% endfor %}</select></div>
+                                <div class="mb-3"><label for="order_date" class="form-label">Date:</label><input type="date" id="order_date" name="order_date" class="form-control form-control-blue" value="{{ today_date }}"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gradient-border-wrapper mb-4">
+                        <div class="card">
+                            <div class="card-header h5">Select Item</div>
+                            <div class="card-body">
+                                <div class="row g-2">
+                                    <div class="col-12"><label for="category-select" class="form-label">Category:</label><select id="category-select" class="form-select form-control-blue"><option selected disabled>-- Select Category --</option>{% for category_name in menu_config.keys() %}<option value="{{ category_name }}">{{ category_name }}</option>{% endfor %}</select></div>
+                                    <div class="col-12"><label for="item-select" class="form-label">Item:</label><select id="item-select" class="form-select form-control-blue"></select></div>
+                                    <div class="col-md-6"><label for="type-select" class="form-label">Type:</label><select id="type-select" class="form-select form-control-blue">{% for type in item_types %}<option value="{{ type }}">{{ type }}</option>{% endfor %}</select></div>
+                                    <div class="col-md-6"><label for="sweetness-select" class="form-label">Sweetness:</label><select id="sweetness-select" class="form-select form-control-blue">{% for level in sweetness_levels %}<option value="{{ level }}">{{ level }}</option>{% endfor %}</select></div>
+                                    <div class="col-12"><label for="details-input" class="form-label">Details:</label><input type="text" id="details-input" class="form-control form-control-blue" placeholder="Optional details..."></div>
+                                </div>
+                                <button type="button" class="btn btn-info mt-3 w-100" id="add-item-btn">Add Item to Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                     <div class="gradient-border-wrapper mb-4">
+                         <div class="card h-100">
+                            <div class="card-header h5">Order Summary</div>
+                            <div class="card-body"><div id="current-order-display" class="list-group" style="min-height: 200px;"></div><textarea name="ordered_items_hidden" id="ordered_items_hidden" style="display: none;"></textarea></div>
+                            <div class="card-footer" style="background-color: transparent; border-top: 1px solid rgba(255,255,255,0.1);"><label for="order_total" class="form-label h5">Order Total</label><div class="input-group"><span class="input-group-text">฿</span><input type="number" id="order_total" name="order_total" class="form-control form-control-blue" placeholder="0.00" required step="0.25"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="gradient-border-wrapper mt-4"><button type="submit" class="btn btn-custom">บันทึกออเดอร์ทั้งหมด</button></div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        const menuConfig = {{ menu_config|tojson }};
+        const categorySelect = document.getElementById('category-select');
+        const itemSelect = document.getElementById('item-select');
+        const orderDisplay = document.getElementById('current-order-display');
+        const hiddenOrderTextarea = document.getElementById('ordered_items_hidden');
+        let currentOrderItems = []; 
+        function renderCurrentOrder() {
+            orderDisplay.innerHTML = ''; hiddenOrderTextarea.value = '';
+            currentOrderItems.forEach((itemString, index) => {
+                const newItemDiv = document.createElement('div');
+                newItemDiv.className = 'list-group-item d-flex justify-content-between align-items-center';
+                newItemDiv.style.backgroundColor = 'rgba(33,37,41,0.5)'; newItemDiv.style.borderColor = 'rgba(255,255,255,0.1)';
+                newItemDiv.textContent = itemString;
+                const btnGroup = document.createElement('div'); btnGroup.className = 'btn-group';
+                const editBtn = document.createElement('button'); editBtn.type = 'button'; editBtn.className = 'btn btn-sm btn-outline-warning py-0 px-1'; editBtn.textContent = 'Edit';
+                editBtn.dataset.index = index; editBtn.onclick = handleEditItem;
+                const deleteBtn = document.createElement('button'); deleteBtn.type = 'button'; deleteBtn.className = 'btn btn-sm btn-outline-danger py-0 px-1';
+                deleteBtn.textContent = 'Del'; deleteBtn.dataset.index = index; deleteBtn.onclick = handleDeleteItem;
+                btnGroup.appendChild(editBtn); btnGroup.appendChild(deleteBtn); newItemDiv.appendChild(btnGroup);
+                orderDisplay.appendChild(newItemDiv);
+            });
+            hiddenOrderTextarea.value = currentOrderItems.join('|||');
+        }
+        function handleEditItem(event) {
+            const index = event.target.dataset.index; const currentItem = currentOrderItems[index]; const newItem = prompt("Edit item:", currentItem);
+            if (newItem !== null && newItem.trim() !== '') { currentOrderItems[index] = newItem.trim(); renderCurrentOrder(); }
+        }
+        function handleDeleteItem(event) {
+            const index = event.target.dataset.index;
+            if (confirm(`Are you sure you want to remove "${currentOrderItems[index]}"?`)) { currentOrderItems.splice(index, 1); renderCurrentOrder(); }
+        }
+        function addItemToOrder() {
+            const item = document.getElementById('item-select').value; if (!item) { alert('Please select an item.'); return; }
+            const type = document.getElementById('type-select').value; const sweetness = document.getElementById('sweetness-select').value;
+            const details = document.getElementById('details-input').value.trim(); let detailsParts = [];
+            if (type !== 'Other') detailsParts.push(type);
+            detailsParts.push(sweetness); if (details) detailsParts.push(details);
+            const finalItemString = `${item} (${detailsParts.join(', ')})`;
+            currentOrderItems.push(finalItemString); renderCurrentOrder(); document.getElementById('details-input').value = '';
+        }
+        function updateItemsDropdown() {
+            const selectedCategory = categorySelect.value; const items = menuConfig[selectedCategory] || [];
+            itemSelect.innerHTML = ''; const defaultOption = new Option('-- Select Item --', '', true, true);
+            defaultOption.disabled = true; itemSelect.add(defaultOption);
+            items.forEach(item => itemSelect.add(new Option(item, item)));
+        }
+        document.getElementById('add-item-btn').addEventListener('click', addItemToOrder);
+        categorySelect.addEventListener('change', updateItemsDropdown);
+        updateItemsDropdown();
+    </script>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Compare Data{% endblock %}
+
+{% block styles %}
+    <style>
+        .gradient-text-yellow { background-image: linear-gradient(45deg, #ffc107, #FFD54F); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
+        .summary-card { background-color: #343a40; border: 1px solid #495057; border-radius: .5rem; }
+        .chart-card { background-color: #343a40; border: 1px solid #495057; border-radius: .5rem; }
+        .diff-pos { color: #198754; }
+        .diff-neg { color: #dc3545; }
+        .gradient-border-wrapper { padding: 3px; border-radius: .5rem; background: linear-gradient(45deg, #ffc107, #FFD54F); }
+        .card-translucent { background-color: rgba(52, 58, 64, 0.75) !important; border: none; }
+        .card-translucent .card-header { background-color: transparent; border-color: rgba(255, 255, 255, 0.1) !important; }
+        .form-control-yellow { border-color: #ffc107; }
+        .form-control-yellow:focus { border-color: #FFD54F; box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25); }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1><span class="gradient-text gradient-text-yellow">Compare Data</span></h1>
+        <div>
+            {% if current_user.is_authenticated %}
+                <span class="text-white me-2">Hi, {{ current_user.username }}</span>
+                <a href="{{ url_for('logout') }}" class="btn btn-outline-danger btn-sm">Logout</a>
+            {% endif %}
+            <a href="/" class="btn btn-outline-secondary btn-sm">กลับหน้าหลัก</a>
+        </div>
+    </div>
+
+    <div class="gradient-border-wrapper mb-4">
+        <div class="card card-translucent">
+            <div class="card-header h5">Select Periods to Compare</div>
+            <div class="card-body">
+                <form method="get" class="row g-3">
+                    <div class="col-md-5"><h5>Period A</h5><label for="month_a" class="form-label">Month</label><input type="month" id="month_a" name="month_a" class="form-control form-control-yellow mb-2" value="{{ month_a }}" required><label for="method_a" class="form-label">Method</label><select id="method_a" name="method_a" class="form-select form-control-yellow"><option value="">All Methods</option>{% for method in order_methods %}<option value="{{ method }}" {% if method == method_a %}selected{% endif %}>{{ method }}</option>{% endfor %}</select></div>
+                    <div class="col-md-2 text-center align-self-center fs-2">VS</div>
+                    <div class="col-md-5"><h5>Period B</h5><label for="month_b" class="form-label">Month</label><input type="month" id="month_b" name="month_b" class="form-control form-control-yellow mb-2" value="{{ month_b }}" required><label for="method_b" class="form-label">Method</label><select id="method_b" name="method_b" class="form-select form-control-yellow"><option value="">All Methods</option>{% for method in order_methods %}<option value="{{ method }}" {% if method == method_b %}selected{% endif %}>{{ method }}</option>{% endfor %}</select></div>
+                    <div class="col-12 d-grid mt-3"><button type="submit" class="btn btn-warning">Compare</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% if data_a and data_b %}
+    <div class="row text-center">
+        <div class="col-4"><h4>Period A ({{ month_a }})</h4></div><div class="col-4"><h4>Period B ({{ month_b }})</h4></div><div class="col-4"><h4>Difference</h4></div><hr>
+        <div class="col-4"><div class="p-3 summary-card"><h5>Revenue</h5><h3 class="display-6">฿ {{ "{:,.2f}".format(data_a.summary.total_revenue) }}</h3></div></div>
+        <div class="col-4"><div class="p-3 summary-card"><h5>Revenue</h5><h3 class="display-6">฿ {{ "{:,.2f}".format(data_b.summary.total_revenue) }}</h3></div></div>
+        <div class="col-4"><div class="p-3 summary-card"><h5 class="{{ 'diff-pos' if comparison.revenue_diff >= 0 else 'diff-neg' }}">Change</h5><h3 class="display-6 {{ 'diff-pos' if comparison.revenue_diff >= 0 else 'diff-neg' }}">฿ {{ "{:,.2f}".format(comparison.revenue_diff) }} <small>({{ "{:+.2f}".format(comparison.revenue_pct) }}%)</small></h3></div></div>
+        <div class="col-4 mt-3"><div class="p-3 summary-card"><h5>Orders</h5><h3 class="display-6">{{ "{:,}".format(data_a.summary.total_orders) }}</h3></div></div>
+        <div class="col-4 mt-3"><div class="p-3 summary-card"><h5>Orders</h5><h3 class="display-6">{{ "{:,}".format(data_b.summary.total_orders) }}</h3></div></div>
+        <div class="col-4 mt-3"><div class="p-3 summary-card"><h5 class="{{ 'diff-pos' if comparison.orders_diff >= 0 else 'diff-neg' }}">Change</h5><h3 class="display-6 {{ 'diff-pos' if comparison.orders_diff >= 0 else 'diff-neg' }}">{{ "{:+,}".format(comparison.orders_diff) }}</h3></div></div>
+    </div>
+    <div class="p-3 chart-card mt-4"><h4 class="mb-3">Daily Sales Comparison</h4><canvas id="comparisonChart"></canvas></div>
+    {% endif %}
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    {% if combined_chart_data %}
+    <script>
+        const chartData = {{ combined_chart_data|tojson }};
+        const ctx = document.getElementById('comparisonChart').getContext('2d');
+        new Chart(ctx, { type: 'line', data: { labels: chartData.labels, datasets: [ { label: 'Period A: {{ month_a }}', data: chartData.data_a, borderColor: '#0dcaf0', backgroundColor: 'rgba(13, 202, 240, 0.1)', fill: true, tension: 0.2 }, { label: 'Period B: {{ month_b }}', data: chartData.data_b, borderColor: '#ffc107', backgroundColor: 'rgba(255, 193, 7, 0.1)', fill: true, tension: 0.2 }] }, options: { scales: { y: { beginAtZero: true } }, interaction: { mode: 'index', intersect: false }, plugins: { tooltip: { position: 'nearest' } } } });
+    </script>
+    {% endif %}
+{% endblock %}

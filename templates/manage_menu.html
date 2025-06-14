@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Menu{% endblock %}
+
+{% block styles %}
+    <style>
+        .gradient-border-wrapper { padding: 3px; border-radius: .5rem; background: linear-gradient(45deg, #dc3545, #fd7e14); }
+        .card-translucent { background-color: rgba(52, 58, 64, 0.75) !important; border: none; }
+        .card-translucent .card-header { background-color: transparent; border-color: rgba(255, 255, 255, 0.1) !important; }
+        .list-group-item-dark { background-color: rgba(52, 58, 64, 0.85) !important; }
+        .gradient-text-red { background-image: linear-gradient(45deg, #dc3545, #fd7e14); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
+        .form-control-red { border-color: #dc3545; }
+        .form-control-red:focus { border-color: #fd7e14; box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25); }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1><span class="gradient-text gradient-text-red">Manage Menu</span></h1>
+        <div>
+            {% if current_user.is_authenticated %}
+                <span class="text-white me-2">Hi, {{ current_user.username }}</span>
+                <a href="{{ url_for('logout') }}" class="btn btn-outline-danger btn-sm">Logout</a>
+            {% endif %}
+            <a href="/" class="btn btn-outline-secondary btn-sm">กลับหน้าหลัก</a>
+        </div>
+    </div>
+
+    <div class="gradient-border-wrapper mb-4">
+        <div class="card card-translucent">
+            <div class="card-header h5">Add New Menu Item</div>
+            <div class="card-body">
+                <form action="{{ url_for('manage_menu') }}" method="post" class="row g-3 align-items-end">
+                    <div class="col-md-5">
+                        <label for="category-add-select" class="form-label">Category:</label>
+                        <select name="category" id="category-add-select" class="form-select form-control-red">
+                            {% for category in categories %}
+                                <option value="{{ category.id }}">{{ category.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="new_item" class="form-label">New Item Name:</label>
+                        <input type="text" name="new_item" id="new_item" class="form-control form-control-red" required>
+                    </div>
+                    <div class="col-md-2 d-grid"><button type="submit" class="btn btn-danger">Add Item</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <h2><span class="gradient-text gradient-text-red">Current Menu</span></h2>
+    <div class="mb-3 mt-3">
+        <label for="category-view-select" class="form-label">Select a category to view/edit items:</label>
+        <select id="category-view-select" class="form-select form-control-red">
+            <option value="">-- Select Category --</option>
+            {% for category in categories %}
+                <option value="{{ category.name }}">{{ category.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="gradient-border-wrapper">
+        <div class="card card-translucent">
+            <div class="card-header h5" id="current-category-header">Select a category</div>
+            <div class="card-body" style="min-height: 250px;">
+                <ul class="list-group list-group-flush" id="item-display-list">
+                   </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        const menuConfigData = {
+            {% for category in categories %}
+                "{{ category.name }}": [
+                    {% for item in category.items|sort(attribute='name') %}
+                        { "id": {{ item.id }}, "name": "{{ item.name }}" } {% if not loop.last %},{% endif %}
+                    {% endfor %}
+                ] {% if not loop.last %},{% endif %}
+            {% endfor %}
+        };
+
+        const categorySelect = document.getElementById('category-view-select');
+        const categoryHeader = document.getElementById('current-category-header');
+        const itemList = document.getElementById('item-display-list');
+
+        function displayMenuItems() {
+            const selectedCategory = categorySelect.value;
+            itemList.innerHTML = '';
+            if (!selectedCategory) {
+                categoryHeader.textContent = 'Please select a category';
+                return;
+            }
+            categoryHeader.textContent = selectedCategory;
+            const items = menuConfigData[selectedCategory] || [];
+
+            if (items.length === 0) {
+                const li = document.createElement('li');
+                li.className = 'list-group-item list-group-item-dark fst-italic';
+                li.textContent = '-- No items --';
+                itemList.appendChild(li);
+                return;
+            }
+
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'list-group-item list-group-item-dark d-flex justify-content-between align-items-center';
+                
+                const itemNameSpan = document.createElement('span');
+                itemNameSpan.textContent = item.name;
+                li.appendChild(itemNameSpan);
+
+                const btnGroup = document.createElement('div');
+                btnGroup.className = 'btn-group';
+
+                const editLink = document.createElement('a');
+                editLink.href = `/edit-item/${item.id}`;
+                editLink.className = 'btn btn-warning btn-sm';
+                editLink.textContent = 'Edit';
+
+                const deleteForm = document.createElement('form');
+                deleteForm.action = `/delete-item`;
+                deleteForm.method = 'post';
+                deleteForm.style.marginBottom = '0';
+                deleteForm.onsubmit = () => confirm(`Are you sure you want to delete "${item.name}"?`);
+                
+                const itemIdInput = document.createElement('input');
+                itemIdInput.type = 'hidden';
+                itemIdInput.name = 'item_id';
+                itemIdInput.value = item.id;
+                
+                const deleteBtn = document.createElement('button');
+                deleteBtn.type = 'submit';
+                deleteBtn.className = 'btn btn-danger btn-sm';
+                deleteBtn.textContent = 'Delete';
+
+                deleteForm.appendChild(itemIdInput);
+                deleteForm.appendChild(deleteBtn);
+                btnGroup.appendChild(editLink);
+                btnGroup.appendChild(deleteForm);
+                li.appendChild(btnGroup);
+                itemList.appendChild(li);
+            });
+        }
+        categorySelect.addEventListener('change', displayMenuItems);
+    </script>
+{% endblock %}

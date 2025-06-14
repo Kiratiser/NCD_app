@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block styles %}
+    <style>
+        .gradient-text-purple { background-image: linear-gradient(45deg, #8a2be2, #c8a2c8); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
+        .summary-card { border-radius: .5rem; color: white; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .summary-card.card-purple-1 { background-color: rgba(138, 43, 226, 0.2); }
+        .summary-card.card-purple-2 { background-color: rgba(138, 43, 226, 0.3); }
+        .summary-card.card-purple-3 { background-color: rgba(138, 43, 226, 0.4); }
+        .chart-card { background-color: #343a40; border: 1px solid #495057; border-radius: .5rem; }
+        .btn-purple { color: #fff; background-color: #6f42c1; border-color: #6f42c1; }
+        .btn-purple:hover { color: #fff; background-color: #5a37a0; border-color: #563494; }
+        .form-control-purple { border-color: #6f42c1; }
+        .form-control-purple:focus { border-color: #8a2be2; box-shadow: 0 0 0 0.25rem rgba(111, 66, 193, 0.5); }
+        .gradient-border-wrapper { padding: 3px; border-radius: .5rem; background: linear-gradient(45deg, #8a2be2, #c8a2c8); }
+        .card-translucent { background-color: rgba(52, 58, 64, 0.75) !important; border: none; }
+        .card-translucent .card-header { background-color: transparent; border-color: rgba(255, 255, 255, 0.1) !important; }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1><span class="gradient-text gradient-text-purple">Dashboard</span></h1>
+        <div>
+            {% if current_user.is_authenticated %}
+                <span class="text-white me-2">Hi, {{ current_user.username }}</span>
+                <a href="{{ url_for('logout') }}" class="btn btn-outline-danger btn-sm">Logout</a>
+            {% endif %}
+            <a href="/" class="btn btn-outline-secondary btn-sm">กลับหน้าหลัก</a>
+        </div>
+    </div>
+
+    <div class="gradient-border-wrapper gradient-border-purple mb-4">
+        <div class="card card-translucent">
+            <div class="card-header h5">Filters</div>
+            <div class="card-body">
+                <form action="/dashboard" method="get" class="row g-2 align-items-end">
+                    <div class="col-md-5"><label for="month-select" class="form-label">Select Month:</label><input type="month" id="month-select" name="month" class="form-control form-control-purple" value="{{ selected_month }}"></div>
+                    <div class="col-md-5"><label for="method-select" class="form-label">Order Method:</label><select id="method-select" name="method" class="form-select form-control-purple"><option value="">All Methods</option>{% for method in order_methods %}<option value="{{ method }}" {% if method == selected_method %}selected{% endif %}>{{ method }}</option>{% endfor %}</select></div>
+                    <div class="col-md-2 d-grid"><button type="submit" class="btn btn-purple">Filter</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row text-start mb-4">
+        <div class="col-md-4 mb-3"><div class="p-3 summary-card card-purple-1"><div class="d-flex justify-content-between align-items-start"><div><h5 class="text-white-50">Total Revenue</h5><h2 class="display-5">฿ {{ summary.get('total_revenue', '0.00') }}</h2></div><i class="bi bi-cash-coin" style="font-size: 2.5rem; opacity: 0.5;"></i></div></div></div>
+        <div class="col-md-4 mb-3"><div class="p-3 summary-card card-purple-2"><div class="d-flex justify-content-between align-items-start"><div><h5 class="text-white-50">Total Orders</h5><h2 class="display-5">{{ summary.get('total_orders', '0') }}</h2></div><i class="bi bi-cart4" style="font-size: 2.5rem; opacity: 0.5;"></i></div></div></div>
+        <div class="col-md-4 mb-3"><div class="p-3 summary-card card-purple-3"><div class="d-flex justify-content-between align-items-start"><div><h5 class="text-white-50">Average Sale</h5><h2 class="display-5">฿ {{ summary.get('average_sale', '0.00') }}</h2></div><i class="bi bi-calculator-fill" style="font-size: 2.5rem; opacity: 0.5;"></i></div></div></div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <div class="p-3 chart-card">
+                <h4 class="mb-3">Sales Over Time</h4>
+                <canvas id="salesChart"></canvas>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-4">
+            <div class="p-3 chart-card">
+                <h4 class="mb-3">Orders per Day</h4>
+                <canvas id="ordersChart"></canvas>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const salesChartData = {{ sales_chart|tojson }};
+        const ordersChartData = {{ orders_chart|tojson }};
+        const salesCtx = document.getElementById('salesChart').getContext('2d');
+        new Chart(salesCtx, {
+            type: 'line', data: { labels: salesChartData.labels,
+                datasets: [{ label: 'Total Sales (฿)', data: salesChartData.data,
+                    borderColor: '#b19dd8', backgroundColor: 'rgba(177, 157, 216, 0.2)',
+                    fill: true, tension: 0.2 }]
+            }, options: { scales: { y: { beginAtZero: true } } }
+        });
+        const ordersCtx = document.getElementById('ordersChart').getContext('2d');
+        new Chart(ordersCtx, {
+            type: 'bar',
+            data: { labels: ordersChartData.labels,
+                datasets: [{ label: 'Number of Orders', data: ordersChartData.data,
+                    borderColor: '#6f42c1', backgroundColor: 'rgba(111, 66, 193, 0.5)'
+                }]
+            }, options: { scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } } }
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block styles %}
+    <style>
+        /* ทำให้ container เต็มความสูงของหน้าจอสำหรับหน้านี้โดยเฉพาะ */
+        .container {
+            max-width: 100%;
+            height: 100vh; /* 100% of viewport height */
+            padding: 0;
+            display: flex;
+            align-items: center; /* จัดกลางแนวตั้ง */
+            justify-content: center; /* จัดกลางแนวนอน */
+        }
+        .main-container { 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+        }
+        .gradient-text { -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
+        .gradient-text-title { background-image: linear-gradient(45deg, #FFD54F, #FF8A65); }
+        .gradient-text-add { background-image: linear-gradient(45deg, #0dcaf0, #0d6efd); }
+        .gradient-text-find { background-image: linear-gradient(45deg, #81c784, #198754); }
+        .gradient-text-manage { background-image: linear-gradient(45deg, #dc3545, #fd7e14); }
+        .gradient-text-yellow { background-image: linear-gradient(45deg, #ffc107, #FFD54F); }
+        .gradient-text-purple { background-image: linear-gradient(45deg, #6f42c1, #b19dd8); }
+        .gradient-border-wrapper { padding: 3px; border-radius: .5rem; margin: 0 1rem; }
+        .gradient-border-add { background: linear-gradient(45deg, #0dcaf0, #0d6efd); }
+        .gradient-border-find { background: linear-gradient(45deg, #198754, #81c784); }
+        .gradient-border-manage { background: linear-gradient(45deg, #dc3545, #fd7e14); }
+        .gradient-border-yellow { background: linear-gradient(45deg, #ffc107, #FFD54F); }
+        .gradient-border-purple { background: linear-gradient(45deg, #6f42c1, #b19dd8); }
+        .btn-custom { background-color: #343a40; color: white; font-weight: bold; padding: 1rem 1.5rem; border: none; width: 100%; border-radius: .3rem; transition: background-color 0.2s ease-in-out; min-width: 250px; }
+        .btn-custom:hover { background-color: #495057; color: white; }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="d-flex justify-content-end w-100" style="position: absolute; top: 1rem; right: 1rem;">
+        {% if current_user.is_authenticated %}
+            <span class="text-white me-3">Hi, {{ current_user.username }}</span>
+            <a href="{{ url_for('logout') }}" class="btn btn-outline-danger">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="btn btn-outline-primary">Login</a>
+        {% endif %}
+    </div>
+
+    <div class="main-container">
+        <h1 class="display-4 mb-5"><strong><span class="gradient-text gradient-text-title">Numberflow</span></strong> Customer Database</h1>
+        <div class="d-flex flex-wrap justify-content-center">
+            <div class="gradient-border-wrapper gradient-border-purple mb-3"><a href="{{ url_for('dashboard') }}" class="btn btn-lg btn-custom"><span class="gradient-text gradient-text-purple"><i class="bi bi-pie-chart-fill me-2"></i>DASHBOARD</span></a></div>
+            <div class="gradient-border-wrapper gradient-border-yellow mb-3"><a href="{{ url_for('compare') }}" class="btn btn-lg btn-custom"><span class="gradient-text gradient-text-yellow"><i class="bi bi-layout-split me-2"></i>COMPARE</span></a></div>
+            <div class="gradient-border-wrapper gradient-border-add mb-3"><a href="{{ url_for('add_order') }}" class="btn btn-lg btn-custom"><span class="gradient-text gradient-text-add"><i class="bi bi-plus-circle-fill me-2"></i>ADD NEW ORDER</span></a></div>
+            <div class="gradient-border-wrapper gradient-border-find mb-3"><a href="{{ url_for('customers_list') }}" class="btn btn-lg btn-custom"><span class="gradient-text gradient-text-find"><i class="bi bi-search me-2"></i>FIND A CUSTOMER</span></a></div>
+            <div class="gradient-border-wrapper gradient-border-manage mb-3"><a href="{{ url_for('manage_menu') }}" class="btn btn-lg btn-custom"><span class="gradient-text gradient-text-manage"><i class="bi bi-gear-fill me-2"></i>MANAGE MENU</span></a></div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block styles %}
+    <style>
+        /* ใช้ CSS ธีมสีเหลืองเหมือนกันกับหน้า Login */
+        .gradient-border-wrapper { padding: 3px; border-radius: .5rem; background: linear-gradient(45deg, #ffc107, #FFD54F); }
+        .card-translucent { background-color: rgba(52, 58, 64, 0.8) !important; border: none; }
+        .card-translucent .card-header { background-color: transparent; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .gradient-text { -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
+        .gradient-text-yellow { background-image: linear-gradient(45deg, #ffc107, #FFD54F); }
+        .form-control-yellow { border-color: #ffc107; }
+        .form-control-yellow:focus { border-color: #FFD54F; box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25); }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 col-lg-4">
+        <div class="gradient-border-wrapper">
+            <div class="card card-translucent">
+                <div class="card-header h4 text-center">
+                    <span class="gradient-text gradient-text-yellow">Create an Account</span>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control form-control-yellow" id="username" name="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control form-control-yellow" id="password" name="password" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-warning">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center text-muted">
+                    Already Have An Account? <a href="{{ url_for('login') }}" class="link-secondary">Sign In</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

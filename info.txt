@@ -1,0 +1,6 @@
+python NCD_MAX.py
+
+ปรับให้เป็นใช้โครงสร้าง base เหมือนหน้า Home
+
+http://127.0.0.1:5000/register (สมัคร)
+

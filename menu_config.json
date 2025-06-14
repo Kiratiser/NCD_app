@@ -1,0 +1,55 @@
+{
+    "Coffee": [
+        "Espresso",
+        "Cappuccino",
+        "Americano",
+        "Latte",
+        "Mocha",
+        "Caramel Macchiato",
+        "Black Coco",
+        "Black Honey lemon",
+        "Black Orange",
+        "Black Peach",
+        "Black Yuzu",
+        "Dalgona latte"
+    ],
+    "Tea": [
+        "Thai Tea",
+        "Green Tea",
+        "Matcha",
+        "Pure Matcha",
+        "Rose Tea",
+        "Fruit Tea",
+        "Peach Tea",
+        "Lemon Tea",
+        "Brown Milk Tea",
+        "Yuzu Honey Tea",
+        "Lychee Tea",
+        "Strawberry Tea",
+        "Jusmine Green Tea",
+        "Strawberry Matcha",
+        "Honey Matcha"
+    ],
+    "Fruit Frappe": [
+        "Strawberry Frappe",
+        "Orange Frappe",
+        "Mango Frappe"
+    ],
+    "Smoothies": [],
+    "Rice": [
+        "กะเพรา",
+        "ข้าวผัดพริกอ่อน",
+        "ข้าวไข่ขยี้กุ้ง",
+        "หมี่คลุก",
+        "ข้าวกระเทียม",
+        "ข้าวผัด"
+    ],
+    "Other": [
+        "Coco ",
+        "Coke",
+        "Oreo",
+        "Ovaltin ",
+        "Yakult Pepo",
+        "lemon Juice"
+    ]
+}
