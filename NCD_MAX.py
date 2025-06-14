@@ -9,13 +9,18 @@ from flask_sqlalchemy import SQLAlchemy
 import io
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from flask_bcrypt import Bcrypt
+import os
 
 # ==============================================================================
 # 1. การตั้งค่า Application และ Database
 # ==============================================================================
 app = Flask(__name__)
-app.secret_key = 'a_very_secret_key_for_production'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cafe_database.db'
+app.secret_key = os.environ.get('SECRET_KEY', 'default_fallback_key')
+DATABASE_URL = os.environ.get('DATABASE_URL')
+# Tip: Render ให้ URL มาเป็น postgres:// แต่ SQLAlchemy ต้องการ postgresql://
+if DATABASE_URL and DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)

@@ -1,0 +1,1 @@
+web: gunicorn NCD_MAX:app
