@@ -361,7 +361,21 @@ def compare():
         order_methods=ORDER_METHODS, combined_chart_data=combined_chart_data
     )
 
+# VVVVVV  โค้ดสำหรับทดสอบ ใส่ไว้ท้ายไฟล์ app.py ได้เลย VVVVVV
+@app.route('/test-db')
+def test_db():
+    try:
+        # ลองสั่งคำสั่งง่ายๆ ไปที่ฐานข้อมูล
+        # db.session.query(1) คือการ SELECT 1 ซึ่งเป็นวิธีที่เร็วที่สุดในการเช็คการเชื่อมต่อ
+        db.session.query(1).first()
+        return '<h1>SUCCESS: Database connection is working!</h1>'
+    except Exception as e:
+        # ถ้ามี Error ให้แสดง Error นั้นออกมาที่หน้าเว็บเลย
+        return f'<h1>ERROR: Database connection failed.</h1><p>Error details: {e}</p>'
+# ^^^^^^ สิ้นสุดโค้ดสำหรับทดสอบ ^^^^^^
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     app.run(debug=True)
+
