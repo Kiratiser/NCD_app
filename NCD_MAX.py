@@ -374,6 +374,17 @@ def test_db():
         return f'<h1>ERROR: Database connection failed.</h1><p>Error details: {e}</p>'
 # ^^^^^^ สิ้นสุดโค้ดสำหรับทดสอบ ^^^^^^
 
+# VVVVVV โค้ดสำหรับสร้างตาราง VVVVVV
+@app.route('/create-tables')
+def create_tables():
+    try:
+        # ดึง metadata ทั้งหมดจาก models ของเราแล้วสั่งสร้างตาราง
+        db.create_all()
+        return '<h1>SUCCESS: All tables created successfully!</h1><p>You can now go to the /register page to create a new user.</p>'
+    except Exception as e:
+        return f'<h1>ERROR: Could not create tables.</h1><p>Error details: {e}</p>'
+# ^^^^^^ สิ้นสุดโค้ดสำหรับสร้างตาราง ^^^^^^
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
