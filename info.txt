@@ -4,3 +4,4 @@ python NCD_MAX.py
 
 http://127.0.0.1:5000/register (สมัคร)
 
+postgresql://ncd_database_user:qT06As5VvU7nTRZbfyD3nO2z7HbEfbPG@dpg-d16icmadbo4c73cgn2m0-a/ncd_database
